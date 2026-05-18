@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="TcvrmuUg9cLDXP7zy8pO8WuY_UHHsGjrlkCU_Wm4C0k" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="google-site-verification" content="TcvrmuUg9cLDXP7zy8pO8WuY_UHHsGjrlkCU_Wm4C0k" />
     <title>Florida Alimony Estimator | 2026 Calculator</title>
     <meta name="description" content="Use our free Florida alimony estimator to instantly calculate spousal support caps and duration limits based on the new SB 1416 laws.">
     
-    <!-- Canonical and Social Graph Tags -->
-    <link rel="canonical" href="https://florida-alimony-estimator.netlify.app/" />
+    <!-- Canonical and Social Graph Tags Updated to GitHub Pages URL -->
+    <link rel="canonical" href="https://22066ayushkumar-jpg.github.io/Florida-Alimony-Calculator/" />
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://florida-alimony-estimator.netlify.app/">
+    <meta property="og:url" content="https://22066ayushkumar-jpg.github.io/Florida-Alimony-Calculator/">
     <meta property="og:title" content="Florida Alimony Estimator | 2026 Calculator">
     <meta property="og:description" content="Use our free Florida alimony estimator to instantly calculate spousal support caps and duration limits based on the new SB 1416 laws.">
-    <meta property="og:image" content="https://florida-alimony-estimator.netlify.app/og-image.jpg">
+    <!-- Make sure to add an image named og-image.jpg to your repository later! -->
+    <meta property="og:image" content="https://22066ayushkumar-jpg.github.io/Florida-Alimony-Calculator/og-image.jpg">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Florida Alimony Estimator | 2026 Calculator">
 
@@ -22,21 +23,20 @@
     
     <!-- 
       PRODUCTION NOTE: 
-      For your live Netlify deployment, you should remove this CDN script and use the Tailwind CLI to compile a static CSS file (e.g., <link rel="stylesheet" href="/style.css">). 
-      This is kept here temporarily so the live preview in this editor continues to work. 
+      For your live deployment, you should eventually remove this CDN script and use the Tailwind CLI to compile a static CSS file (e.g., <link rel="stylesheet" href="/style.css">). 
     -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- JSON-LD Structured Data for SEO -->
+    <!-- JSON-LD Structured Data for SEO Updated to GitHub Pages URL -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "WebApplication",
-          "@id": "https://florida-alimony-estimator.netlify.app/#webapp",
+          "@id": "https://22066ayushkumar-jpg.github.io/Florida-Alimony-Calculator/#webapp",
           "name": "Florida Alimony Estimator",
-          "url": "https://florida-alimony-estimator.netlify.app",
+          "url": "https://22066ayushkumar-jpg.github.io/Florida-Alimony-Calculator/",
           "description": "Calculates statutory ceilings based on the 2023 SB 1416 reforms (Fla. Stat. Section 61.08).",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Any",
@@ -48,7 +48,7 @@
         },
         {
           "@type": "FAQPage",
-          "@id": "https://florida-alimony-estimator.netlify.app/#faq",
+          "@id": "https://22066ayushkumar-jpg.github.io/Florida-Alimony-Calculator/#faq",
           "mainEntity": [
             {
               "@type": "Question",
@@ -163,7 +163,7 @@
         
         <header class="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-slate-200 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             <div class="flex-1">
-                <h1 class="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-slate-900">Florida Alimony Estimator</h1>
+                <div class="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-slate-900">Florida Alimony Estimator</div>
                 <p class="text-xs sm:text-sm md:text-base text-slate-500 mt-1">Calculates statutory ceilings based on the 2023 SB 1416 reforms (Fla. Stat. &sect; 61.08).</p>
             </div>
         </header>
@@ -178,13 +178,11 @@
                         <svg class="w-5 h-5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         <h2 class="text-lg font-bold text-slate-800">Length of Marriage</h2>
                     </div>
-                    <!-- UI UX Fix: Replaced hover tooltip with clear inline text for mobile -->
                     <p class="text-xs text-slate-500 mb-4 ml-7">Measure exactly from the Date of Marriage to the Date of Filing.</p>
                     
                     <div class="grid grid-cols-2 gap-3 sm:gap-4">
                         <div>
                             <label class="block text-sm font-semibold text-slate-700 mb-1">Years</label>
-                            <!-- UI UX Fix: py-3 for larger touch target, bg-slate-50 to white on focus for contrast -->
                             <input type="number" inputmode="decimal" min="0" id="years" placeholder="0" class="w-full text-base px-3 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors shadow-inner">
                         </div>
                         <div>
@@ -210,7 +208,6 @@
                             </div>
                         </div>
                         
-                        <!-- UI UX Fix: Replaced Checkbox + Absolute Div with simple peer layout for inline pushing -->
                         <div class="mt-3 relative">
                             <input type="checkbox" id="toggleP" class="peer hidden">
                             <label for="toggleP" class="cursor-pointer flex items-center justify-between text-sm font-medium text-slate-600 hover:text-blue-600 bg-slate-50 hover:bg-slate-100 p-3 sm:p-4 rounded-xl border border-slate-200 transition-colors select-none">
@@ -221,7 +218,6 @@
                                 <span id="pDeductBadge" class="text-xs bg-slate-200 text-slate-700 px-2 py-1 rounded-full hidden">-</span>
                             </label>
                             
-                            <!-- Inline Flow Expansion (Removes overlapping on mobile) -->
                             <div class="peer-checked:max-h-[800px] max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                                 <div class="pt-4 pb-2 px-1">
                                     <div class="text-xs text-slate-500 mb-4 bg-blue-50 p-3 rounded-lg border border-blue-100">
@@ -259,7 +255,6 @@
                             </div>
                         </div>
                         
-                        <!-- UI UX Fix: Inline expansion mechanism duplicated for recipient -->
                         <div class="mt-3 relative">
                             <input type="checkbox" id="toggleR" class="peer hidden">
                             <label for="toggleR" class="cursor-pointer flex items-center justify-between text-sm font-medium text-slate-600 hover:text-blue-600 bg-slate-50 hover:bg-slate-100 p-3 sm:p-4 rounded-xl border border-slate-200 transition-colors select-none">
@@ -332,12 +327,12 @@
         </div>
 
         <article class="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-sm border border-slate-200 mt-8 prose prose-slate max-w-none prose-headings:text-slate-800 prose-a:text-blue-600 hover:prose-a:text-blue-800 text-sm sm:text-base">
-            <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900 mb-6 leading-tight">2026 Florida Alimony Estimator: Calculate Spousal Support Caps & Guidelines</h2>
+            <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900 mb-6 leading-tight">2026 Florida Alimony Estimator: Calculate Spousal Support Caps & Guidelines</h1>
             
             <p>Last month, I sat down with a friend who was terrified about her upcoming divorce. She had no idea how she was going to pay her bills after twenty years of marriage. Going through a divorce creates so much financial uncertainty and stress. I get it. We've all been there. That is exactly why I built this Florida alimony estimator.</p>
             <p>A lot of people heard about the massive 2023 alimony reform but don't know what it means. The lawmakers passed Senate Bill 1416, which completely overhauled <a href="http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0061/Sections/0061.08.html" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 hover:underline">Florida Statute &sect; 61.08</a>. The biggest shock for most families? <strong>Permanent alimony is officially dead</strong> for new cases. It does not exist anymore. This estimator uses the brand new durational alimony caps to show you exactly what to expect.</p>
 
-            <h3 class="text-xl font-bold mt-8 mb-4">How to Use the Florida Alimony Estimator</h3>
+            <h3 class="text-xl font-bold mt-8 mb-4">Types of Alimony in Florida</h3>
             <p>Since permanent support is gone, judges use five specific categories to handle financial transitions.</p>
             
             <div class="overflow-x-auto my-6 border border-slate-200 rounded-xl shadow-sm not-prose">
