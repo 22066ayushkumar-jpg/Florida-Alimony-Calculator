@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="TcvrmuUg9cLDXP7zy8pO8WuY_UHHsGjrlkCU_Wm4C0k" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- SEO Meta Tags -->
+    <title>Chain Reaction Game - Play Online with Friends</title>
+    <meta name="description" content="Play the classic Chain Reaction strategy game online. Play local multiplayer with up to 4 friends. Trigger explosive chain reactions to win!">
+    <meta name="keywords" content="Chain Reaction, strategy game, online board game, multiplayer game, puzzle, html5 game">
+    <meta name="author" content="Chain Reaction App">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Chain Reaction Game - Strategy Board Game">
+    <meta property="og:description" content="Take control of the board by eliminating your opponents' orbs in this explosive strategy game.">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS for rapid UI styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a',
+                        p1: '#ef4444', // Red
+                        p2: '#3b82f6', // Blue
+                        p3: '#22c55e', // Green
+                        p4: '#eab308'  // Yellow
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for canvas and animations -->
+    <style>
+        body { background-color: #0f172a; color: white; overscroll-behavior: none; }
+        #game-canvas {
+            touch-action: none;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 3px solid #475569; /* Added clear outer border */
+            background: #1e293b;
+        }
+        .modal {
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .prose h3 { color: #38bdf8; margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: bold; }
+        .prose p { margin-bottom: 1rem; color: #cbd5e1; line-height: 1.6; }
+    </style>
+
+    <!-- JSON-LD Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Chain Reaction",
+      "description": "A strategic board game where players place orbs to trigger explosive chain reactions and eliminate opponents.",
+      "genre": ["Board Game", "Strategy", "Puzzle"],
+      "playMode": ["MultiPlayer"],
+      "applicationCategory": "Game",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
+    <!-- FAQ JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How do you win the Chain Reaction game?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The objective is to eliminate all opponents from the board. You win by capturing your opponents' orbs through explosive chain reactions until you are the last player remaining."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is 'critical mass' in Chain Reaction?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Critical mass refers to the maximum number of orbs a cell can hold before it explodes. Corners have a critical mass of 2, edges have 3, and middle cells have 4."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How many people can play at once?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This online version supports local multiplayer for 2 to 4 players on the same device. You take turns placing your orbs on the board."
+        }
+      }]
+    }
+    </script>
+</head>
+<body class="min-h-screen bg-slate-900 font-sans antialiased text-white selection:bg-blue-500/30">
+
+    <!-- Game First Fold Wrapper -->
+    <div class="h-[100dvh] w-full flex flex-col items-center overflow-hidden">
+        
+        <!-- Compact Header Section -->
+        <header class="w-full max-w-3xl px-4 py-3 flex justify-between items-center shrink-0 border-b border-slate-800">
+            <h1 class="text-xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 tracking-tight truncate">
+                CHAIN REACTION GAME
+            </h1>
+            <div class="flex gap-2 shrink-0">
+                <button onclick="showRules()" class="px-3 py-1.5 bg-slate-800 border border-slate-700 hover:bg-slate-700 text-slate-300 rounded-lg text-xs md:text-sm font-semibold transition">
+                    Rules
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Game Container -->
+        <main class="flex-1 w-full flex flex-col items-center p-2 md:p-4 min-h-0 relative">
+            
+            <!-- Game Status & Controls -->
+            <div class="w-full max-w-[400px] flex justify-between items-center mb-2 shrink-0 gap-2">
+                <div id="status-indicator" class="flex-1 flex items-center justify-center md:justify-start gap-2 px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 transition-colors duration-300 truncate">
+                    <div id="turn-color" class="w-3 h-3 md:w-4 md:h-4 rounded-full bg-slate-600 shadow-none shrink-0"></div>
+                    <span id="turn-text" class="font-bold text-xs md:text-sm truncate text-slate-400">Waiting to start...</span>
+                </div>
+                
+                <button onclick="restartGame()" id="restart-btn" class="hidden px-3 py-2 bg-rose-500/20 text-rose-400 border border-rose-500/50 hover:bg-rose-500 hover:text-white rounded-lg text-xs md:text-sm font-semibold transition shrink-0">
+                    Restart
+                </button>
+                <button onclick="showMenu()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg text-xs md:text-sm font-semibold transition shrink-0">
+                    Menu
+                </button>
+            </div>
+
+            <!-- Canvas Container (Responsive First Fold) -->
+            <div id="canvas-container" class="flex-1 w-full max-w-[400px] flex justify-center items-center min-h-0 relative">
+                <canvas id="game-canvas"></canvas>
+            </div>
+
+            <!-- Dynamic Game Over / Message Overlay -->
+            <div id="message-overlay" class="absolute inset-0 hidden items-center justify-center pointer-events-none z-40">
+                <div class="bg-black/90 text-white px-6 py-4 rounded-xl text-xl md:text-2xl font-bold shadow-2xl tracking-widest uppercase text-center mx-4">
+                    <span id="message-text"></span>
+                </div>
+            </div>
+
+            <!-- Setup Menu Modal -->
+            <div id="menu-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-slate-900/95 px-4 hidden">
+                <div class="bg-slate-800 p-6 md:p-8 rounded-2xl w-full max-w-sm border border-slate-700 shadow-2xl relative">
+                    <h2 class="text-2xl font-bold mb-6 text-center text-white">Game Setup</h2>
+                    
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Total Players (2-4)</label>
+                            <select id="total-players" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500">
+                                <option value="2">2 Players</option>
+                                <option value="3">3 Players</option>
+                                <option value="4">4 Players</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Board Size</label>
+                            <select id="board-size" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500">
+                                <option value="9x6">9 x 6 (Classic)</option>
+                                <option value="12x8">12 x 8 (Medium)</option>
+                                <option value="15x10">15 x 10 (Large)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex gap-3">
+                        <button onclick="startGame()" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg transition shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                            Play Now
+                        </button>
+                        <button onclick="closeMenu()" id="resume-btn" class="hidden flex-1 bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 rounded-lg transition">
+                            Resume
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rules Modal -->
+            <div id="rules-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-slate-900/95 px-4 hidden">
+                <div class="bg-slate-800 p-6 md:p-8 rounded-2xl w-full max-w-md border border-slate-700 shadow-2xl max-h-[80vh] overflow-y-auto relative">
+                    <button onclick="hideRules()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-2xl leading-none">&times;</button>
+                    <h2 class="text-2xl font-bold text-white mb-4 mt-0">How to Play</h2>
+                    <div class="prose prose-invert prose-sm md:prose-base">
+                        <p class="text-slate-300 mb-4"><strong>Objective:</strong> Take control of the board by eliminating all opponents' orbs.</p>
+                        <ul class="list-disc pl-5 space-y-2 text-slate-300">
+                            <li><strong>Rule 1:</strong> Played on a customizable board (default 9x6).</li>
+                            <li><strong>Rule 2:</strong> Critical mass = adjacent cells (4 for middle, 3 for edges, 2 for corners).</li>
+                            <li><strong>Rule 3:</strong> Place an orb in an empty cell or one containing your color.</li>
+                            <li><strong>Rule 4:</strong> Reaching critical mass causes an explosion, distributing orbs to neighbors.</li>
+                            <li><strong>Rule 5:</strong> Explosions capture opponent orbs, converting them to your color!</li>
+                            <li><strong>Rule 6:</strong> If you lose all your orbs, you're out. The last player standing wins.</li>
+                        </ul>
+                    </div>
+                    <button onclick="hideRules()" class="w-full mt-6 bg-slate-700 hover:bg-slate-600 border border-slate-600 text-white font-bold py-3 rounded-lg transition">Got it!</button>
+                </div>
+            </div>
+
+            <!-- Confirm Restart Modal -->
+            <div id="confirm-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-slate-900/95 px-4 hidden">
+                <div class="bg-slate-800 p-6 md:p-8 rounded-2xl w-full max-w-sm border border-slate-700 shadow-2xl relative text-center">
+                    <h2 class="text-xl font-bold text-white mb-4">Restart Game?</h2>
+                    <p class="text-slate-300 mb-6">Are you sure you want to restart the current match?</p>
+                    <div class="flex gap-3">
+                        <button onclick="confirmRestart(true)" class="flex-1 bg-rose-600 hover:bg-rose-500 text-white font-bold py-2 rounded-lg transition">Yes, Restart</button>
+                        <button onclick="confirmRestart(false)" class="flex-1 bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 rounded-lg transition">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Privacy Policy Modal -->
+            <div id="privacy-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-slate-900/95 px-4 hidden">
+                <div class="bg-slate-800 p-6 md:p-8 rounded-2xl w-full max-w-2xl border border-slate-700 shadow-2xl max-h-[80vh] overflow-y-auto relative">
+                    <button onclick="hidePrivacyPolicy()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-2xl leading-none">&times;</button>
+                    <h2 class="text-2xl font-bold text-white mb-4 mt-0">Privacy Policy</h2>
+                    <div class="prose prose-invert prose-sm md:prose-base text-slate-300">
+                        <p><strong>Last updated:</strong> April 2026</p>
+                        <p>Welcome to the Chain Reaction Game. We value your privacy. This Privacy Policy explains how we handle information when you play our online board game.</p>
+                        
+                        <h3 class="text-white font-semibold">1. Information Collection</h3>
+                        <p>We do not collect, store, or process any personal data. The game logic operates entirely on your local device within your web browser.</p>
+                        
+                        <h3 class="text-white font-semibold">2. Cookies and Tracking</h3>
+                        <p>We do not use cookies or local storage to track your behavior. Game state is temporary and resets when you refresh the page or restart the match.</p>
+                        
+                        <h3 class="text-white font-semibold">3. Third-Party Links</h3>
+                        <p>Our website may contain links to third-party services (such as our Contact Us form hosted by Google). We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
+                    </div>
+                    <button onclick="hidePrivacyPolicy()" class="w-full mt-6 bg-slate-700 hover:bg-slate-600 border border-slate-600 text-white font-bold py-3 rounded-lg transition">Close</button>
+                </div>
+            </div>
+
+            <!-- Contact Us Modal -->
+            <div id="contact-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-slate-900/95 px-4 hidden">
+                <div class="bg-slate-800 p-6 md:p-8 rounded-2xl w-full max-w-2xl border border-slate-700 shadow-2xl h-[90vh] flex flex-col relative">
+                    <button onclick="hideContactUs()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-2xl leading-none z-10">&times;</button>
+                    <h2 class="text-2xl font-bold text-white mb-4 mt-0 shrink-0">Contact Us</h2>
+                    <div class="flex-1 w-full bg-slate-100 rounded-lg overflow-hidden relative">
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdWPZ2JzfwOEJnDeGY6P44APkzFtV0sQ9ttflV38Wnf8T-IEw/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" class="absolute inset-0">Loading form...</iframe>
+                    </div>
+                    <button onclick="hideContactUs()" class="w-full mt-6 bg-slate-700 hover:bg-slate-600 border border-slate-600 text-white font-bold py-3 rounded-lg transition shrink-0">Close</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- SEO Content Section (Below the fold) -->
+    <article class="w-full max-w-4xl mx-auto px-6 py-16 text-slate-300">
+        <div class="prose prose-invert prose-blue max-w-none">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Play the Chain Reaction Game Online</h2>
+            <p class="text-lg md:text-xl mb-6">Welcome to the ultimate digital version of the <strong>Chain Reaction game</strong>. This is a highly strategic, zero-player-elimination, explosive puzzle experience that requires zero downloads. You can play this digital board game locally with friends directly in your browser. Take control of the board, trigger massive chain reactions, and eliminate your opponents' orbs to claim victory!</p>
+
+            <div class="grid md:grid-cols-2 gap-12 my-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Core Features</h3>
+                    <ul class="space-y-3">
+                        <li><strong>2-4 Player Multiplayer:</strong> Challenge your friends in local hot-seat multiplayer.</li>
+                        <li><strong>Customizable Board Sizes:</strong> Play on Classic (9x6), Medium (12x8), or Large (15x10) grids.</li>
+                        <li><strong>Instant Loading:</strong> No downloads, no waiting. Built with pure HTML5 Canvas for lightning-fast performance.</li>
+                        <li><strong>Mobile-Friendly:</strong> Fully responsive design that fits perfectly on any smartphone or desktop screen.</li>
+                        <li><strong>Synthesized Audio:</strong> Zero-latency, procedurally generated sound effects for satisfying explosions.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Advanced Winning Strategies</h3>
+                    <p class="mb-4">Want to dominate your friends? Keep these tips in mind:</p>
+                    <ul class="space-y-4">
+                        <li><strong>Control the Corners:</strong> Corners only require a mass of 2 to explode. Securing them early gives you a cheap, highly defensive staging ground.</li>
+                        <li><strong>The Edge Advantage:</strong> Edges (mass 3) are your highways. Build along the edges to surround opponents trapped in the middle (mass 4).</li>
+                        <li><strong>The Domino Effect:</strong> Don't just build randomly. Stack your orbs so that one explosion triggers another adjacent critical cell, sweeping the board in a single turn.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-slate-800 my-12">
+
+            <h2 class="text-3xl font-bold text-white mb-8">Frequently Asked Questions (FAQ)</h2>
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-xl font-semibold text-blue-400 mb-2">How do you win the Chain Reaction game?</h4>
+                    <p class="leading-relaxed">The sole objective is to eliminate all opponents from the board. You win by capturing your opponents' orbs through explosive chain reactions until you are the last player with orbs remaining on the grid.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold text-blue-400 mb-2">What is 'critical mass' in Chain Reaction?</h4>
+                    <p class="leading-relaxed">Critical mass refers to the maximum number of orbs a cell can hold before it destabilizes and explodes. Corners have a critical mass of 2, edges have 3, and all inner cells have a critical mass of 4. When a cell reaches critical mass, it bursts, sending its orbs to adjacent cells.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold text-blue-400 mb-2">Can I play Chain Reaction on my mobile phone?</h4>
+                    <p class="leading-relaxed">Yes! This game is fully optimized for touch screens and mobile browsers. Just share the link with your friends, and you can pass the phone around to play.</p>
+                </div>
+            </div>
+
+            <!-- Footer Links -->
+            <footer class="mt-16 pt-8 border-t border-slate-800 text-center text-sm text-slate-500">
+                <p>&copy; 2026 Chain Reaction Game. All rights reserved.</p>
+                <div class="flex justify-center gap-6 mt-4">
+                    <button onclick="showPrivacyPolicy()" class="hover:text-blue-400 transition cursor-pointer">Privacy Policy</button>
+                    <button onclick="showContactUs()" class="hover:text-blue-400 transition cursor-pointer">Contact Us</button>
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <!-- Game Logic & Rendering Scripts -->
+    <script>
+        /** * AUDIO SYSTEM - Synthesized Sounds for ZERO latency and zero external loading
+         */
+        let audioCtx = null;
+        
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function playSound(type) {
+            if (!audioCtx) return;
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (type === 'place') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.1);
+                    gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.1);
+                } else if (type === 'explode') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(50, audioCtx.currentTime + 0.2);
+                    gain.gain.setValueAtTime(0.5, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.2);
+                } else if (type === 'win') {
+                    [300, 400, 500].forEach(freq => {
+                        const winOsc = audioCtx.createOscillator();
+                        const winGain = audioCtx.createGain();
+                        winOsc.connect(winGain);
+                        winGain.connect(audioCtx.destination);
+                        winOsc.type = 'sine';
+                        winOsc.frequency.value = freq;
+                        winGain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                        winGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1);
+                        winOsc.start();
+                        winOsc.stop(audioCtx.currentTime + 1);
+                    });
+                }
+            } catch(e) { console.warn("Audio error", e); }
+        }
+
+        /**
+         * GAME ENGINE & LOGIC
+         */
+        const canvas = document.getElementById('game-canvas');
+        const ctx = canvas.getContext('2d', { alpha: false });
+        
+        // Settings
+        let ROWS = 9;
+        let COLS = 6;
+        let CELL_SIZE = 60;
+        
+        const COLORS = {
+            1: { hex: '#ef4444', shadow: 'rgba(239, 68, 68, 0.6)' },   // Red
+            2: { hex: '#3b82f6', shadow: 'rgba(59, 130, 246, 0.6)' },   // Blue
+            3: { hex: '#22c55e', shadow: 'rgba(34, 197, 94, 0.6)' },    // Green
+            4: { hex: '#eab308', shadow: 'rgba(234, 179, 8, 0.6)' }     // Yellow
+        };
+
+        // State variables
+        let grid = [];
+        let totalPlayers = 2;
+        let activePlayers = [];
+        let playerEliminated = {};
+        let currentPlayerIndex = 0;
+        let isAnimating = false;
+        let gameActive = false;
+        let turnCount = 0;
+        
+        // Initialization
+        function resizeCanvas() {
+            const container = document.getElementById('canvas-container');
+            if (!container) return;
+            
+            const maxWidth = container.clientWidth;
+            const maxHeight = container.clientHeight;
+            
+            const cellW = Math.floor(maxWidth / COLS);
+            const cellH = Math.floor(maxHeight / ROWS);
+            
+            CELL_SIZE = Math.min(cellW, cellH);
+            
+            canvas.width = CELL_SIZE * COLS;
+            canvas.height = CELL_SIZE * ROWS;
+            drawBoard();
+        }
+        window.addEventListener('resize', resizeCanvas);
+
+        function initGrid() {
+            grid = Array.from({ length: ROWS }, () => 
+                Array.from({ length: COLS }, () => ({ player: null, count: 0 }))
+            );
+        }
+
+        function getCriticalMass(r, c) {
+            let mass = 4;
+            if (r === 0 || r === ROWS - 1) mass--;
+            if (c === 0 || c === COLS - 1) mass--;
+            return mass;
+        }
+
+        function getNeighbors(r, c) {
+            const neighbors = [];
+            if (r > 0) neighbors.push({ r: r - 1, c });
+            if (r < ROWS - 1) neighbors.push({ r: r + 1, c });
+            if (c > 0) neighbors.push({ r, c: c - 1 });
+            if (c < COLS - 1) neighbors.push({ r, c: c + 1 });
+            return neighbors;
+        }
+
+        // --- Drawing Logic ---
+        function drawBoard() {
+            ctx.fillStyle = '#1e293b'; 
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Set the grid line properties for enhanced visibility
+            ctx.strokeStyle = '#475569';
+            ctx.lineWidth = 1.5; 
+            ctx.beginPath();
+            
+            for (let r = 1; r < ROWS; r++) {
+                ctx.moveTo(0, r * CELL_SIZE);
+                ctx.lineTo(canvas.width, r * CELL_SIZE);
+            }
+            for (let c = 1; c < COLS; c++) {
+                ctx.moveTo(c * CELL_SIZE, 0);
+                ctx.lineTo(c * CELL_SIZE, canvas.height);
+            }
+            ctx.stroke();
+
+            for (let r = 0; r < ROWS; r++) {
+                for (let c = 0; c < COLS; c++) {
+                    const cell = grid[r][c];
+                    if (cell.count > 0) {
+                        drawOrbs(r, c, cell.count, cell.player);
+                    }
+                }
+            }
+        }
+
+        function drawOrbs(r, c, count, player) {
+            const cx = c * CELL_SIZE + CELL_SIZE / 2;
+            const cy = r * CELL_SIZE + CELL_SIZE / 2;
+            const color = COLORS[player];
+            const orbRadius = CELL_SIZE * 0.22;
+
+            ctx.fillStyle = color.hex;
+            ctx.shadowColor = color.shadow;
+            ctx.shadowBlur = 10;
+
+            const drawCircle = (x, y) => {
+                ctx.beginPath();
+                ctx.arc(x, y, orbRadius, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.fillStyle = 'rgba(255,255,255,0.3)';
+                ctx.shadowBlur = 0;
+                ctx.beginPath();
+                ctx.arc(x - orbRadius*0.3, y - orbRadius*0.3, orbRadius*0.3, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.fillStyle = color.hex;
+                ctx.shadowBlur = 10;
+            };
+
+            if (count === 1) {
+                drawCircle(cx, cy);
+            } else if (count === 2) {
+                drawCircle(cx - orbRadius*0.6, cy);
+                drawCircle(cx + orbRadius*0.6, cy);
+            } else if (count === 3) {
+                drawCircle(cx, cy - orbRadius*0.6);
+                drawCircle(cx - orbRadius*0.6, cy + orbRadius*0.6);
+                drawCircle(cx + orbRadius*0.6, cy + orbRadius*0.6);
+            }
+            
+            ctx.shadowBlur = 0;
+        }
+
+        // --- Interaction Logic ---
+        canvas.addEventListener('click', (e) => {
+            if (!gameActive || isAnimating) return;
+            
+            initAudio(); 
+
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const c = Math.floor(x / CELL_SIZE);
+            const r = Math.floor(y / CELL_SIZE);
+
+            if (r >= 0 && r < ROWS && c >= 0 && c < COLS) {
+                handleMove(r, c);
+            }
+        });
+
+        function handleMove(r, c) {
+            const player = activePlayers[currentPlayerIndex];
+            const cell = grid[r][c];
+
+            if (cell.player !== null && cell.player !== player) return;
+
+            playSound('place');
+            cell.player = player;
+            cell.count++;
+            
+            turnCount++;
+            processExplosions();
+        }
+
+        function processExplosions() {
+            isAnimating = true;
+            drawBoard();
+
+            let explosions = [];
+            for (let r = 0; r < ROWS; r++) {
+                for (let c = 0; c < COLS; c++) {
+                    if (grid[r][c].count >= getCriticalMass(r, c)) {
+                        explosions.push({r, c});
+                    }
+                }
+            }
+
+            if (explosions.length > 0) {
+                playSound('explode');
+                setTimeout(() => {
+                    for (const {r, c} of explosions) {
+                        const cell = grid[r][c];
+                        const player = cell.player;
+                        
+                        cell.count -= getCriticalMass(r, c);
+                        if (cell.count === 0) cell.player = null;
+
+                        const neighbors = getNeighbors(r, c);
+                        for (const n of neighbors) {
+                            grid[n.r][n.c].player = player;
+                            grid[n.r][n.c].count++;
+                        }
+                    }
+                    processExplosions(); 
+                }, 200); 
+            } else {
+                isAnimating = false;
+                checkGameStatus();
+            }
+        }
+
+        function checkGameStatus() {
+            if (turnCount >= activePlayers.length) {
+                const orbCounts = {};
+                activePlayers.forEach(p => orbCounts[p] = 0);
+                
+                for (let r = 0; r < ROWS; r++) {
+                    for (let c = 0; c < COLS; c++) {
+                        if (grid[r][c].player) {
+                            orbCounts[grid[r][c].player]++;
+                        }
+                    }
+                }
+
+                activePlayers.forEach(p => {
+                    if (orbCounts[p] === 0 && !playerEliminated[p]) {
+                        playerEliminated[p] = true;
+                    }
+                });
+
+                activePlayers = activePlayers.filter(p => !playerEliminated[p]);
+
+                if (activePlayers.length <= 1) {
+                    gameActive = false;
+                    const winner = activePlayers[0] || 1;
+                    playSound('win');
+                    showMessage(`Player ${winner} Wins!`);
+                    
+                    const resumeBtn = document.getElementById('resume-btn');
+                    if(resumeBtn) resumeBtn.classList.add('hidden');
+                    return;
+                }
+            }
+
+            nextPlayer();
+        }
+
+        function nextPlayer() {
+            currentPlayerIndex = (currentPlayerIndex + 1) % activePlayers.length;
+            updateUI();
+        }
+
+        function updateUI() {
+            if (activePlayers.length === 0) return;
+            const playerNum = activePlayers[currentPlayerIndex];
+            const colorData = COLORS[playerNum];
+            
+            const indicator = document.getElementById('status-indicator');
+            const turnColor = document.getElementById('turn-color');
+            const turnText = document.getElementById('turn-text');
+
+            if(turnColor) {
+                turnColor.style.backgroundColor = colorData.hex;
+                turnColor.style.boxShadow = `0 0 10px ${colorData.shadow}`;
+            }
+            
+            if(turnText) turnText.innerText = `Player ${playerNum}'s Turn`;
+            
+            if(indicator) indicator.style.borderColor = colorData.hex;
+        }
+
+        // --- UI & Lifecycle ---
+        function showMessage(msg) {
+            const overlay = document.getElementById('message-overlay');
+            const messageText = document.getElementById('message-text');
+            if(messageText) messageText.innerText = msg;
+            if(overlay) {
+                overlay.classList.remove('hidden');
+                overlay.classList.add('flex');
+                
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                    overlay.classList.remove('flex');
+                    showMenu();
+                }, 3000);
+            }
+        }
+
+        function showMenu() {
+            const menuModal = document.getElementById('menu-modal');
+            const resumeBtn = document.getElementById('resume-btn');
+            if(menuModal) menuModal.classList.remove('hidden');
+            if (gameActive && resumeBtn) {
+                resumeBtn.classList.remove('hidden');
+            }
+        }
+
+        function closeMenu() {
+            const menuModal = document.getElementById('menu-modal');
+            if(menuModal) menuModal.classList.add('hidden');
+            initAudio();
+        }
+
+        function restartGame() {
+            const confirmModal = document.getElementById('confirm-modal');
+            if(confirmModal) confirmModal.classList.remove('hidden');
+        }
+
+        function confirmRestart(yes) {
+            const confirmModal = document.getElementById('confirm-modal');
+            if(confirmModal) confirmModal.classList.add('hidden');
+            if (yes) {
+                startGame();
+            }
+        }
+
+        function showRules() {
+            const rulesModal = document.getElementById('rules-modal');
+            if(rulesModal) rulesModal.classList.remove('hidden');
+        }
+
+        function hideRules() {
+            const rulesModal = document.getElementById('rules-modal');
+            if(rulesModal) rulesModal.classList.add('hidden');
+        }
+
+        function showPrivacyPolicy() {
+            const modal = document.getElementById('privacy-modal');
+            if(modal) modal.classList.remove('hidden');
+        }
+
+        function hidePrivacyPolicy() {
+            const modal = document.getElementById('privacy-modal');
+            if(modal) modal.classList.add('hidden');
+        }
+
+        function showContactUs() {
+            const modal = document.getElementById('contact-modal');
+            if(modal) modal.classList.remove('hidden');
+        }
+
+        function hideContactUs() {
+            const modal = document.getElementById('contact-modal');
+            if(modal) modal.classList.add('hidden');
+        }
+
+        function startGame() {
+            initAudio();
+            
+            const playersSel = document.getElementById('total-players');
+            const boardSizeSel = document.getElementById('board-size');
+            
+            if(playersSel) {
+                totalPlayers = parseInt(playersSel.value);
+            }
+            if(boardSizeSel) {
+                const dims = boardSizeSel.value.split('x');
+                ROWS = parseInt(dims[0]);
+                COLS = parseInt(dims[1]);
+            }
+
+            activePlayers = Array.from({length: totalPlayers}, (_, i) => i + 1);
+            playerEliminated = {};
+            currentPlayerIndex = 0;
+            turnCount = 0;
+            isAnimating = false;
+            gameActive = true;
+            
+            initGrid();
+            resizeCanvas();
+            updateUI();
+            closeMenu();
+            
+            const restartBtn = document.getElementById('restart-btn');
+            if(restartBtn) restartBtn.classList.remove('hidden');
+        }
+
+        // Initial setup
+        initGrid();
+        resizeCanvas();
+        showMenu(); 
+    </script>
+</body>
+</html>
