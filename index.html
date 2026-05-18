@@ -1,751 +1,685 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="google-site-verification" content="TcvrmuUg9cLDXP7zy8pO8WuY_UHHsGjrlkCU_Wm4C0k" />
+    <meta name="google-site-verification" content="TcvrmuUg9cLDXP7zy8pO8WuY_UHHsGjrlkCU_Wm4C0k" />
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Florida Alimony Estimator | 2026 Calculator</title>
+    <meta name="description" content="Use our free Florida alimony estimator to instantly calculate spousal support caps and duration limits based on the new SB 1416 laws.">
     
-    <!-- SEO Meta Tags -->
-    <title>Chain Reaction Game - Play Online with Friends</title>
-    <meta name="description" content="Play the classic Chain Reaction strategy game online. Play local multiplayer with up to 4 friends. Trigger explosive chain reactions to win!">
-    <meta name="keywords" content="Chain Reaction, strategy game, online board game, multiplayer game, puzzle, html5 game">
-    <meta name="author" content="Chain Reaction App">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Social -->
-    <meta property="og:title" content="Chain Reaction Game - Strategy Board Game">
-    <meta property="og:description" content="Take control of the board by eliminating your opponents' orbs in this explosive strategy game.">
+    <!-- Canonical and Social Graph Tags -->
+    <link rel="canonical" href="https://florida-alimony-estimator.netlify.app/" />
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://florida-alimony-estimator.netlify.app/">
+    <meta property="og:title" content="Florida Alimony Estimator | 2026 Calculator">
+    <meta property="og:description" content="Use our free Florida alimony estimator to instantly calculate spousal support caps and duration limits based on the new SB 1416 laws.">
+    <meta property="og:image" content="https://florida-alimony-estimator.netlify.app/og-image.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Florida Alimony Estimator | 2026 Calculator">
+
+    <!-- SVG Favicon for zero network requests -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3'/%3E%3C/svg%3E">
     
-    <!-- Tailwind CSS for rapid UI styling -->
+    <!-- 
+      PRODUCTION NOTE: 
+      For your live Netlify deployment, you should remove this CDN script and use the Tailwind CLI to compile a static CSS file (e.g., <link rel="stylesheet" href="/style.css">). 
+      This is kept here temporarily so the live preview in this editor continues to work. 
+    -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        dark: '#0f172a',
-                        p1: '#ef4444', // Red
-                        p2: '#3b82f6', // Blue
-                        p3: '#22c55e', // Green
-                        p4: '#eab308'  // Yellow
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Custom CSS for canvas and animations -->
-    <style>
-        body { background-color: #0f172a; color: white; overscroll-behavior: none; }
-        #game-canvas {
-            touch-action: none;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            border: 3px solid #475569; /* Added clear outer border */
-            background: #1e293b;
-        }
-        .modal {
-            backdrop-filter: blur(5px);
-            animation: fadeIn 0.3s ease-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        .prose h3 { color: #38bdf8; margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: bold; }
-        .prose p { margin-bottom: 1rem; color: #cbd5e1; line-height: 1.6; }
-    </style>
-
-    <!-- JSON-LD Schema for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "VideoGame",
-      "name": "Chain Reaction",
-      "description": "A strategic board game where players place orbs to trigger explosive chain reactions and eliminate opponents.",
-      "genre": ["Board Game", "Strategy", "Puzzle"],
-      "playMode": ["MultiPlayer"],
-      "applicationCategory": "Game",
-      "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
-    }
-    </script>
     
-    <!-- FAQ JSON-LD Schema -->
+    <!-- JSON-LD Structured Data for SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "How do you win the Chain Reaction game?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The objective is to eliminate all opponents from the board. You win by capturing your opponents' orbs through explosive chain reactions until you are the last player remaining."
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://florida-alimony-estimator.netlify.app/#webapp",
+          "name": "Florida Alimony Estimator",
+          "url": "https://florida-alimony-estimator.netlify.app",
+          "description": "Calculates statutory ceilings based on the 2023 SB 1416 reforms (Fla. Stat. Section 61.08).",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://florida-alimony-estimator.netlify.app/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How long do you have to be married to get alimony?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There is no legal minimum. But marriages under 10 years face a heavy legal presumption against receiving any durational alimony."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Florida still have permanent alimony?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Senate Bill 1416 eliminated permanent alimony for all new cases filed after July 1, 2023."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Florida have a strict spousal support formula?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Florida uses a strict cap, not a guaranteed formula. A judge cannot award more than 35 percent of the difference between the two spouses' net incomes for durational support."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can alimony be modified?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Either party can request a modification if they experience a substantial, permanent, and involuntary change in their financial situation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is alimony taxable in Florida?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not for any divorce finalized in 2019 or later. The recipient gets the money completely tax-free."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does adultery affect alimony?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, but mostly on the financial side. A judge cares if marital money was wasted on the affair."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can men receive alimony in Florida?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The law is completely gender-neutral. The court only looks at financial need and the ability to pay."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I appeal an alimony decision if I think the judge calculated my net income wrong?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can file an appeal. You have a very short 30-day window to file the paperwork after the final judgment. You have to prove the judge made a specific legal or mathematical error."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens to my alimony if my ex-spouse files for bankruptcy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Domestic support obligations survive bankruptcy. Your ex cannot wipe out their alimony or child support debt by filing Chapter 7 or Chapter 13."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do courts calculate income for a spouse who is unemployed on purpose?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The judge looks at their past work history, education, and current local job market. They assign an imputed income based on what that person could realistically earn right now, and base the alimony on that fake number."
+              }
+            }
+          ]
         }
-      }, {
-        "@type": "Question",
-        "name": "What is 'critical mass' in Chain Reaction?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Critical mass refers to the maximum number of orbs a cell can hold before it explodes. Corners have a critical mass of 2, edges have 3, and middle cells have 4."
-        }
-      }, {
-        "@type": "Question",
-        "name": "How many people can play at once?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "This online version supports local multiplayer for 2 to 4 players on the same device. You take turns placing your orbs on the board."
-        }
-      }]
+      ]
     }
     </script>
-</head>
-<body class="min-h-screen bg-slate-900 font-sans antialiased text-white selection:bg-blue-500/30">
 
-    <!-- Game First Fold Wrapper -->
-    <div class="h-[100dvh] w-full flex flex-col items-center overflow-hidden">
+    <style>
+        /* Use native system fonts for 0ms load time and perfect OS integration */
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
         
-        <!-- Compact Header Section -->
-        <header class="w-full max-w-3xl px-4 py-3 flex justify-between items-center shrink-0 border-b border-slate-800">
-            <h1 class="text-xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 tracking-tight truncate">
-                CHAIN REACTION GAME
-            </h1>
-            <div class="flex gap-2 shrink-0">
-                <button onclick="showRules()" class="px-3 py-1.5 bg-slate-800 border border-slate-700 hover:bg-slate-700 text-slate-300 rounded-lg text-xs md:text-sm font-semibold transition">
-                    Rules
-                </button>
+        /* Hide number input spinners for a cleaner look */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+        input[type=number] { -moz-appearance: textfield; }
+
+        /* Remove tap highlight on mobile for cleaner button presses */
+        * { -webkit-tap-highlight-color: transparent; }
+
+        /* Smooth accordion transitions for native details tag */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        
+        /* Prevent body scroll hiding behind the new, taller mobile footer (including safe area) */
+        .pb-mobile-footer { padding-bottom: calc(5.5rem + env(safe-area-inset-bottom)); }
+        @media (min-width: 1024px) { .pb-mobile-footer { padding-bottom: 2rem; } }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-100 text-slate-800 pb-mobile-footer selection:bg-blue-200">
+
+    <div class="max-w-6xl mx-auto p-3 sm:p-6 lg:p-8 space-y-4 sm:space-y-6 lg:space-y-8">
+        
+        <header class="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-slate-200 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+            <div class="flex-1">
+                <h1 class="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-slate-900">Florida Alimony Estimator</h1>
+                <p class="text-xs sm:text-sm md:text-base text-slate-500 mt-1">Calculates statutory ceilings based on the 2023 SB 1416 reforms (Fla. Stat. &sect; 61.08).</p>
             </div>
         </header>
 
-        <!-- Main Game Container -->
-        <main class="flex-1 w-full flex flex-col items-center p-2 md:p-4 min-h-0 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
             
-            <!-- Game Status & Controls -->
-            <div class="w-full max-w-[400px] flex justify-between items-center mb-2 shrink-0 gap-2">
-                <div id="status-indicator" class="flex-1 flex items-center justify-center md:justify-start gap-2 px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 transition-colors duration-300 truncate">
-                    <div id="turn-color" class="w-3 h-3 md:w-4 md:h-4 rounded-full bg-slate-600 shadow-none shrink-0"></div>
-                    <span id="turn-text" class="font-bold text-xs md:text-sm truncate text-slate-400">Waiting to start...</span>
-                </div>
+            <div class="lg:col-span-7 space-y-4 sm:space-y-6">
                 
-                <button onclick="restartGame()" id="restart-btn" class="hidden px-3 py-2 bg-rose-500/20 text-rose-400 border border-rose-500/50 hover:bg-rose-500 hover:text-white rounded-lg text-xs md:text-sm font-semibold transition shrink-0">
-                    Restart
-                </button>
-                <button onclick="showMenu()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg text-xs md:text-sm font-semibold transition shrink-0">
-                    Menu
-                </button>
-            </div>
-
-            <!-- Canvas Container (Responsive First Fold) -->
-            <div id="canvas-container" class="flex-1 w-full max-w-[400px] flex justify-center items-center min-h-0 relative">
-                <canvas id="game-canvas"></canvas>
-            </div>
-
-            <!-- Dynamic Game Over / Message Overlay -->
-            <div id="message-overlay" class="absolute inset-0 hidden items-center justify-center pointer-events-none z-40">
-                <div class="bg-black/90 text-white px-6 py-4 rounded-xl text-xl md:text-2xl font-bold shadow-2xl tracking-widest uppercase text-center mx-4">
-                    <span id="message-text"></span>
-                </div>
-            </div>
-
-            <!-- Setup Menu Modal -->
-            <div id="menu-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-slate-900/95 px-4 hidden">
-                <div class="bg-slate-800 p-6 md:p-8 rounded-2xl w-full max-w-sm border border-slate-700 shadow-2xl relative">
-                    <h2 class="text-2xl font-bold mb-6 text-center text-white">Game Setup</h2>
+                <!-- Marriage Length -->
+                <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200">
+                    <div class="flex items-center gap-2 mb-1">
+                        <svg class="w-5 h-5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <h2 class="text-lg font-bold text-slate-800">Length of Marriage</h2>
+                    </div>
+                    <!-- UI UX Fix: Replaced hover tooltip with clear inline text for mobile -->
+                    <p class="text-xs text-slate-500 mb-4 ml-7">Measure exactly from the Date of Marriage to the Date of Filing.</p>
                     
-                    <div class="space-y-5">
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-slate-300 mb-2">Total Players (2-4)</label>
-                            <select id="total-players" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500">
-                                <option value="2">2 Players</option>
-                                <option value="3">3 Players</option>
-                                <option value="4">4 Players</option>
-                            </select>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Years</label>
+                            <!-- UI UX Fix: py-3 for larger touch target, bg-slate-50 to white on focus for contrast -->
+                            <input type="number" inputmode="decimal" min="0" id="years" placeholder="0" class="w-full text-base px-3 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors shadow-inner">
                         </div>
-
                         <div>
-                            <label class="block text-sm font-medium text-slate-300 mb-2">Board Size</label>
-                            <select id="board-size" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500">
-                                <option value="9x6">9 x 6 (Classic)</option>
-                                <option value="12x8">12 x 8 (Medium)</option>
-                                <option value="15x10">15 x 10 (Large)</option>
-                            </select>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Months</label>
+                            <input type="number" inputmode="decimal" min="0" max="11" id="months" placeholder="0" class="w-full text-base px-3 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors shadow-inner">
                         </div>
                     </div>
-
-                    <div class="mt-8 flex gap-3">
-                        <button onclick="startGame()" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg transition shadow-[0_0_15px_rgba(59,130,246,0.5)]">
-                            Play Now
-                        </button>
-                        <button onclick="closeMenu()" id="resume-btn" class="hidden flex-1 bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 rounded-lg transition">
-                            Resume
-                        </button>
-                    </div>
                 </div>
-            </div>
 
-            <!-- Rules Modal -->
-            <div id="rules-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-slate-900/95 px-4 hidden">
-                <div class="bg-slate-800 p-6 md:p-8 rounded-2xl w-full max-w-md border border-slate-700 shadow-2xl max-h-[80vh] overflow-y-auto relative">
-                    <button onclick="hideRules()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-2xl leading-none">&times;</button>
-                    <h2 class="text-2xl font-bold text-white mb-4 mt-0">How to Play</h2>
-                    <div class="prose prose-invert prose-sm md:prose-base">
-                        <p class="text-slate-300 mb-4"><strong>Objective:</strong> Take control of the board by eliminating all opponents' orbs.</p>
-                        <ul class="list-disc pl-5 space-y-2 text-slate-300">
-                            <li><strong>Rule 1:</strong> Played on a customizable board (default 9x6).</li>
-                            <li><strong>Rule 2:</strong> Critical mass = adjacent cells (4 for middle, 3 for edges, 2 for corners).</li>
-                            <li><strong>Rule 3:</strong> Place an orb in an empty cell or one containing your color.</li>
-                            <li><strong>Rule 4:</strong> Reaching critical mass causes an explosion, distributing orbs to neighbors.</li>
-                            <li><strong>Rule 5:</strong> Explosions capture opponent orbs, converting them to your color!</li>
-                            <li><strong>Rule 6:</strong> If you lose all your orbs, you're out. The last player standing wins.</li>
-                        </ul>
-                    </div>
-                    <button onclick="hideRules()" class="w-full mt-6 bg-slate-700 hover:bg-slate-600 border border-slate-600 text-white font-bold py-3 rounded-lg transition">Got it!</button>
-                </div>
-            </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="p-4 sm:p-5">
+                        <div class="flex items-center gap-2 mb-1">
+                            <svg class="w-5 h-5 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h2 class="text-lg font-bold text-slate-800">Payor's Monthly Income</h2>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-4 ml-7">Income of the spouse who will potentially pay alimony.</p>
 
-            <!-- Confirm Restart Modal -->
-            <div id="confirm-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-slate-900/95 px-4 hidden">
-                <div class="bg-slate-800 p-6 md:p-8 rounded-2xl w-full max-w-sm border border-slate-700 shadow-2xl relative text-center">
-                    <h2 class="text-xl font-bold text-white mb-4">Restart Game?</h2>
-                    <p class="text-slate-300 mb-6">Are you sure you want to restart the current match?</p>
-                    <div class="flex gap-3">
-                        <button onclick="confirmRestart(true)" class="flex-1 bg-rose-600 hover:bg-rose-500 text-white font-bold py-2 rounded-lg transition">Yes, Restart</button>
-                        <button onclick="confirmRestart(false)" class="flex-1 bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 rounded-lg transition">Cancel</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Privacy Policy Modal -->
-            <div id="privacy-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-slate-900/95 px-4 hidden">
-                <div class="bg-slate-800 p-6 md:p-8 rounded-2xl w-full max-w-2xl border border-slate-700 shadow-2xl max-h-[80vh] overflow-y-auto relative">
-                    <button onclick="hidePrivacyPolicy()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-2xl leading-none">&times;</button>
-                    <h2 class="text-2xl font-bold text-white mb-4 mt-0">Privacy Policy</h2>
-                    <div class="prose prose-invert prose-sm md:prose-base text-slate-300">
-                        <p><strong>Last updated:</strong> April 2026</p>
-                        <p>Welcome to the Chain Reaction Game. We value your privacy. This Privacy Policy explains how we handle information when you play our online board game.</p>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Gross Monthly Income</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><span class="text-slate-400 font-medium">$</span></div>
+                                <input type="number" inputmode="decimal" min="0" id="pGross" placeholder="0" class="w-full text-base pl-8 pr-3 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors shadow-inner">
+                            </div>
+                        </div>
                         
-                        <h3 class="text-white font-semibold">1. Information Collection</h3>
-                        <p>We do not collect, store, or process any personal data. The game logic operates entirely on your local device within your web browser.</p>
-                        
-                        <h3 class="text-white font-semibold">2. Cookies and Tracking</h3>
-                        <p>We do not use cookies or local storage to track your behavior. Game state is temporary and resets when you refresh the page or restart the match.</p>
-                        
-                        <h3 class="text-white font-semibold">3. Third-Party Links</h3>
-                        <p>Our website may contain links to third-party services (such as our Contact Us form hosted by Google). We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
+                        <!-- UI UX Fix: Replaced Checkbox + Absolute Div with simple peer layout for inline pushing -->
+                        <div class="mt-3 relative">
+                            <input type="checkbox" id="toggleP" class="peer hidden">
+                            <label for="toggleP" class="cursor-pointer flex items-center justify-between text-sm font-medium text-slate-600 hover:text-blue-600 bg-slate-50 hover:bg-slate-100 p-3 sm:p-4 rounded-xl border border-slate-200 transition-colors select-none">
+                                <span class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 transition-transform peer-checked:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    <span>Calculate Net Income (Optional)</span>
+                                </span>
+                                <span id="pDeductBadge" class="text-xs bg-slate-200 text-slate-700 px-2 py-1 rounded-full hidden">-</span>
+                            </label>
+                            
+                            <!-- Inline Flow Expansion (Removes overlapping on mobile) -->
+                            <div class="peer-checked:max-h-[800px] max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="pt-4 pb-2 px-1">
+                                    <div class="text-xs text-slate-500 mb-4 bg-blue-50 p-3 rounded-lg border border-blue-100">
+                                        Enter mandatory monthly deductions below to determine the strict Statutory Net Income.
+                                    </div>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                                        <div><label class="block text-xs font-semibold text-slate-700 mb-1">Taxes</label><input type="number" inputmode="decimal" id="pTax" class="w-full text-base px-3 py-2 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" placeholder="0"></div>
+                                        <div><label class="block text-xs font-semibold text-slate-700 mb-1">Union Dues</label><input type="number" inputmode="decimal" id="pUnion" class="w-full text-base px-3 py-2 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" placeholder="0"></div>
+                                        <div><label class="block text-xs font-semibold text-slate-700 mb-1">Health Ins.</label><input type="number" inputmode="decimal" id="pHealth" class="w-full text-base px-3 py-2 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" placeholder="0"></div>
+                                        <div><label class="block text-xs font-semibold text-slate-700 mb-1">Retirement</label><input type="number" inputmode="decimal" id="pRetire" class="w-full text-base px-3 py-2 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" placeholder="0"></div>
+                                    </div>
+                                    <div class="mt-4 pt-3 border-t border-slate-200 flex justify-between items-center font-bold text-sm bg-slate-50 -mx-1 -mb-2 p-3 rounded-b-lg">
+                                        <span class="text-slate-600">Payor Net Income:</span>
+                                        <span id="pNetDisplay" class="text-red-600 text-lg">$0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <button onclick="hidePrivacyPolicy()" class="w-full mt-6 bg-slate-700 hover:bg-slate-600 border border-slate-600 text-white font-bold py-3 rounded-lg transition">Close</button>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="p-4 sm:p-5">
+                        <div class="flex items-center gap-2 mb-1">
+                            <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h2 class="text-lg font-bold text-slate-800">Recipient's Monthly Income</h2>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-4 ml-7">Income of the spouse seeking alimony. Include imputed income.</p>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Gross Monthly Income</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><span class="text-slate-400 font-medium">$</span></div>
+                                <input type="number" inputmode="decimal" min="0" id="rGross" placeholder="0" class="w-full text-base pl-8 pr-3 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors shadow-inner">
+                            </div>
+                        </div>
+                        
+                        <!-- UI UX Fix: Inline expansion mechanism duplicated for recipient -->
+                        <div class="mt-3 relative">
+                            <input type="checkbox" id="toggleR" class="peer hidden">
+                            <label for="toggleR" class="cursor-pointer flex items-center justify-between text-sm font-medium text-slate-600 hover:text-blue-600 bg-slate-50 hover:bg-slate-100 p-3 sm:p-4 rounded-xl border border-slate-200 transition-colors select-none">
+                                <span class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 transition-transform peer-checked:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    <span>Calculate Net Income (Optional)</span>
+                                </span>
+                                <span id="rDeductBadge" class="text-xs bg-slate-200 text-slate-700 px-2 py-1 rounded-full hidden">-</span>
+                            </label>
+                            
+                            <div class="peer-checked:max-h-[800px] max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="pt-4 pb-2 px-1">
+                                    <div class="text-xs text-slate-500 mb-4 bg-blue-50 p-3 rounded-lg border border-blue-100">
+                                        Enter mandatory monthly deductions below to determine the strict Statutory Net Income.
+                                    </div>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                                        <div><label class="block text-xs font-semibold text-slate-700 mb-1">Taxes</label><input type="number" inputmode="decimal" id="rTax" class="w-full text-base px-3 py-2 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" placeholder="0"></div>
+                                        <div><label class="block text-xs font-semibold text-slate-700 mb-1">Union Dues</label><input type="number" inputmode="decimal" id="rUnion" class="w-full text-base px-3 py-2 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" placeholder="0"></div>
+                                        <div><label class="block text-xs font-semibold text-slate-700 mb-1">Health Ins.</label><input type="number" inputmode="decimal" id="rHealth" class="w-full text-base px-3 py-2 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" placeholder="0"></div>
+                                        <div><label class="block text-xs font-semibold text-slate-700 mb-1">Retirement</label><input type="number" inputmode="decimal" id="rRetire" class="w-full text-base px-3 py-2 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" placeholder="0"></div>
+                                    </div>
+                                    <div class="mt-4 pt-3 border-t border-slate-200 flex justify-between items-center font-bold text-sm bg-slate-50 -mx-1 -mb-2 p-3 rounded-b-lg">
+                                        <span class="text-slate-600">Recipient Net Income:</span>
+                                        <span id="rNetDisplay" class="text-emerald-600 text-lg">$0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Contact Us Modal -->
-            <div id="contact-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-slate-900/95 px-4 hidden">
-                <div class="bg-slate-800 p-6 md:p-8 rounded-2xl w-full max-w-2xl border border-slate-700 shadow-2xl h-[90vh] flex flex-col relative">
-                    <button onclick="hideContactUs()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-2xl leading-none z-10">&times;</button>
-                    <h2 class="text-2xl font-bold text-white mb-4 mt-0 shrink-0">Contact Us</h2>
-                    <div class="flex-1 w-full bg-slate-100 rounded-lg overflow-hidden relative">
-                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdWPZ2JzfwOEJnDeGY6P44APkzFtV0sQ9ttflV38Wnf8T-IEw/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" class="absolute inset-0">Loading form...</iframe>
+            <div class="hidden lg:block lg:col-span-5 space-y-6 relative">
+                <div class="bg-slate-900 rounded-3xl p-6 shadow-xl text-white sticky top-6">
+                    <div class="flex items-center gap-2 mb-6 text-blue-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        <h2 class="text-xl font-bold">Results Dashboard</h2>
                     </div>
-                    <button onclick="hideContactUs()" class="w-full mt-6 bg-slate-700 hover:bg-slate-600 border border-slate-600 text-white font-bold py-3 rounded-lg transition shrink-0">Close</button>
+
+                    <div class="mb-6">
+                        <div class="text-slate-400 text-sm font-medium mb-1">Marriage Classification</div>
+                        <div id="desktopClass" class="text-lg font-semibold bg-white/10 px-4 py-2 rounded-xl border border-white/10 inline-block">
+                            Awaiting Input...
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-5 border border-blue-500/30 relative overflow-hidden shadow-inner">
+                            <div class="text-blue-100 text-sm font-medium mb-1">Maximum Monthly Cap</div>
+                            <div id="desktopCap" class="text-4xl font-extrabold tracking-tight">$0.00</div>
+                            <div class="text-xs text-blue-200 mt-1 opacity-80">Statutory limit (35% rule)</div>
+                        </div>
+
+                        <div class="bg-slate-800 rounded-2xl p-5 border border-slate-700 shadow-inner">
+                            <div class="text-slate-400 text-sm font-medium mb-1">Maximum Durational Term</div>
+                            <div id="desktopDuration" class="text-2xl font-bold text-white mt-1">0 months</div>
+                            <div id="desktopDurationSub" class="text-xs text-slate-500 mt-1">Awaiting marriage length.</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 text-amber-200/90 text-xs leading-relaxed flex items-start gap-3">
+                        <svg class="w-6 h-6 shrink-0 text-amber-500/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <div>
+                            <strong class="text-amber-500 font-semibold uppercase block mb-1">Crucial Legal Disclaimer</strong>
+                            This tool calculates the absolute statutory ceilings. <strong>Actual awards are rarely the maximum.</strong> Judges determine awards based on proven financial need vs. ability to pay.
+                        </div>
+                    </div>
                 </div>
             </div>
-        </main>
+        </div>
+
+        <article class="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-sm border border-slate-200 mt-8 prose prose-slate max-w-none prose-headings:text-slate-800 prose-a:text-blue-600 hover:prose-a:text-blue-800 text-sm sm:text-base">
+            <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900 mb-6 leading-tight">2026 Florida Alimony Estimator: Calculate Spousal Support Caps & Guidelines</h2>
+            
+            <p>Last month, I sat down with a friend who was terrified about her upcoming divorce. She had no idea how she was going to pay her bills after twenty years of marriage. Going through a divorce creates so much financial uncertainty and stress. I get it. We've all been there. That is exactly why I built this Florida alimony estimator.</p>
+            <p>A lot of people heard about the massive 2023 alimony reform but don't know what it means. The lawmakers passed Senate Bill 1416, which completely overhauled <a href="http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0061/Sections/0061.08.html" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 hover:underline">Florida Statute &sect; 61.08</a>. The biggest shock for most families? <strong>Permanent alimony is officially dead</strong> for new cases. It does not exist anymore. This estimator uses the brand new durational alimony caps to show you exactly what to expect.</p>
+
+            <h3 class="text-xl font-bold mt-8 mb-4">How to Use the Florida Alimony Estimator</h3>
+            <p>Since permanent support is gone, judges use five specific categories to handle financial transitions.</p>
+            
+            <div class="overflow-x-auto my-6 border border-slate-200 rounded-xl shadow-sm not-prose">
+                <table class="w-full text-left text-sm sm:text-base text-slate-700 min-w-[600px]">
+                    <thead class="bg-slate-50 border-b border-slate-200 text-slate-800">
+                        <tr>
+                            <th class="p-4 font-bold w-1/4">Type</th>
+                            <th class="p-4 font-bold w-2/4">What It Does</th>
+                            <th class="p-4 font-bold w-1/4">Limits</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50/50 transition-colors">
+                            <td class="p-4 font-semibold text-slate-900">Temporary (Pendente Lite)</td>
+                            <td class="p-4">Pays the bills while the divorce is still active in court.</td>
+                            <td class="p-4">Ends the day the judge signs the final divorce decree.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50 transition-colors">
+                            <td class="p-4 font-semibold text-slate-900">Bridge-the-Gap</td>
+                            <td class="p-4">Covers short-term needs like moving expenses or an apartment deposit so you can transition to single life.</td>
+                            <td class="p-4">Hard capped at two years. You can't modify this later.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50 transition-colors">
+                            <td class="p-4 font-semibold text-slate-900">Rehabilitative</td>
+                            <td class="p-4">Funds specific education or job training so you can support yourself.</td>
+                            <td class="p-4">Capped at five years. You must submit a detailed plan to the court.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50 transition-colors">
+                            <td class="p-4 font-semibold text-slate-900">Durational</td>
+                            <td class="p-4">Provides ongoing monthly support based on your income difference. This is the new standard replacement for permanent alimony.</td>
+                            <td class="p-4">Length depends strictly on how many years you were married.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50 transition-colors">
+                            <td class="p-4 font-semibold text-slate-900">Lump-Sum Buyouts</td>
+                            <td class="p-4">Trades monthly payments for a single upfront cash transfer or a larger share of house equity.</td>
+                            <td class="p-4">Requires both parties to negotiate and agree on the present-value math.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-xl font-bold mt-10 mb-4">How is Alimony Calculated in Florida?</h2>
+            <p>Everything starts with two basic requirements. The spouse asking for money must prove they actually have a financial need. The other spouse must have the actual ability to pay it. If both exist, the math begins.</p>
+            <p>The courts look at gross income first. That means everything you earn from salaries, quarterly bonuses, business income, investment dividends, and retirement accounts. But judges don't base the final award on gross income. They calculate your <strong>statutory net income</strong>. They take your gross pay and strip out income taxes, mandatory union dues, and your health insurance premiums.</p>
+            
+            <div class="bg-blue-50 border border-blue-100 rounded-xl p-5 my-6 shadow-sm">
+                <p class="font-semibold text-blue-900 mb-2 mt-0">The 35% Rule Calculation Example</p>
+                <p class="text-blue-800 m-0">Florida strictly caps durational alimony at 35 percent of the difference between those two net incomes. Say you take home $10,000 a month and your ex takes home $4,000. The difference is $6,000. <strong>The absolute highest amount a judge can order is $2,100 a month.</strong></p>
+            </div>
+
+            <p>Business owners complicate this calculation. If you run a company and expense your personal car lease and cell phone through the business, the judge will add that money back into your income.</p>
+            <p>Child support also changes the math. Courts always calculate child support <em>first</em>. Paying child support lowers your available net income, which directly shrinks the maximum alimony you can be forced to pay.</p>
+
+            <h2 class="text-xl font-bold mt-10 mb-4">How Long Does Alimony Last? (The Duration Cliffs)</h2>
+            <p>The law defines exactly how long you have to pay based on the length of your marriage.</p>
+            <ul class="list-disc pl-5 mb-6 space-y-2">
+                <li><strong>Short-Term Marriages (Under 10 years):</strong> The court presumes you don't need alimony. If you somehow prove you do, the payments cannot last longer than 50 percent of the length of the marriage.</li>
+                <li><strong>Moderate-Term Marriages (10 to 20 years):</strong> You can receive support for a maximum of 60 percent of the marriage duration. If you stayed married for 15 years, the payments hit a hard stop at 9 years.</li>
+                <li><strong>Long-Term Marriages (20+ years):</strong> The court presumes you probably need support. Even then, the payments are capped at 75 percent of the marriage length.</li>
+            </ul>
+            <p>Judges only ignore these duration caps under exceptional circumstances. You have to prove a severe, permanent disability or show that you are stuck at home full-time caring for a severely disabled child.</p>
+
+            <h2 class="text-xl font-bold mt-10 mb-4">Key Legal Factors Judges Must Consider (Florida Statute 61.08)</h2>
+            <p>Judges review a specific list of factors before they finalize the numbers. They look at the standard of living established during the marriage, but they also know two households cost more to run than one. They evaluate both spouses' resources, existing assets, and education levels to figure out earning capacity.</p>
+            <p>Your unpaid contributions matter. A judge assigns value to homemaking, raising kids, and sacrificing your own career to support your partner. They also review the mental and physical health of both people to see if a medical condition ruins someone's ability to work.</p>
+            <p>Adultery still plays a role in a no-fault state. If an affair drained marital funds on hotel rooms and expensive dinners, the judge will heavily weigh that financial waste when deciding the alimony amount.</p>
+            <p>A valid prenuptial or postnuptial agreement overrides all of this. If you signed a legal contract waving your right to spousal support, the statutory calculator means nothing. The contract wins.</p>
+
+            <h2 class="text-xl font-bold mt-10 mb-4">Modifications, Terminations & Special Circumstances</h2>
+            <p>Things change after the divorce. A payor reaching normal retirement age can file a petition to reduce or completely terminate their monthly support obligation. The court also cuts off payments if the recipient enters a supportive relationship. Cohabitation terminates alimony, but you have to prove it in court. You need hard evidence like shared bank accounts, a joint lease, or proof they split the grocery bills at a shared residence.</p>
+            <p>Some people just quit their jobs to avoid paying. That doesn't work. If a judge decides you are voluntarily underemployed, they will impute your income. They calculate your alimony based on what you should be earning, and you still have to pay it.</p>
+            <p>Courts sometimes force the paying spouse to secure the alimony with a life insurance policy. This only happens in special circumstances to protect a recipient who would face total financial ruin if their ex died unexpectedly.</p>
+            <p>If your ex just refuses to pay, you have to drag them back to court. A judge can order wage garnishment directly from their employer or throw them in jail for contempt of court.</p>
+
+            <h2 class="text-xl font-bold mt-10 mb-4">The Tax Implications of Spousal Support</h2>
+            <p>The federal tax rules depend entirely on the exact year your divorce finished.</p>
+            <p>For divorces finalized <strong>after December 31, 2018</strong>, the paying spouse uses after-tax dollars. They get zero tax deduction. The person receiving the money gets it tax-free and does not report it as income to the IRS.</p>
+            <p>If your divorce was finalized <strong>before January 1, 2019</strong>, you fall under the old rules. The payor deducts the payments on their tax return, and the recipient must claim every dollar as taxable income.</p>
+
+            <h2 class="text-xl font-bold mt-12 mb-6 pb-2 border-b border-slate-200">Frequently Asked Questions (FAQs)</h2>
+            <div class="space-y-3 not-prose mb-8">
+                
+                <details class="group border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 hover:bg-slate-50 transition-colors">
+                        <span class="pr-4 text-slate-800">How long do you have to be married to get alimony?</span>
+                        <span class="transition-transform group-open:rotate-180 shrink-0 text-blue-500">
+                            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-slate-600 p-4 pt-0 text-sm sm:text-base border-t border-slate-100 mt-1">There is no legal minimum. But marriages under 10 years face a heavy legal presumption against receiving any durational alimony.</div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 hover:bg-slate-50 transition-colors">
+                        <span class="pr-4 text-slate-800">Does Florida still have permanent alimony?</span>
+                        <span class="transition-transform group-open:rotate-180 shrink-0 text-blue-500">
+                            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-slate-600 p-4 pt-0 text-sm sm:text-base border-t border-slate-100 mt-1">No. Senate Bill 1416 eliminated permanent alimony for all new cases filed after July 1, 2023.</div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 hover:bg-slate-50 transition-colors">
+                        <span class="pr-4 text-slate-800">Does Florida have a strict spousal support formula?</span>
+                        <span class="transition-transform group-open:rotate-180 shrink-0 text-blue-500">
+                            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-slate-600 p-4 pt-0 text-sm sm:text-base border-t border-slate-100 mt-1">Florida uses a strict cap, not a guaranteed formula. A judge cannot award more than 35 percent of the difference between the two spouses' net incomes for durational support.</div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 hover:bg-slate-50 transition-colors">
+                        <span class="pr-4 text-slate-800">Can alimony be modified?</span>
+                        <span class="transition-transform group-open:rotate-180 shrink-0 text-blue-500">
+                            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-slate-600 p-4 pt-0 text-sm sm:text-base border-t border-slate-100 mt-1">Yes. Either party can request a modification if they experience a substantial, permanent, and involuntary change in their financial situation.</div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 hover:bg-slate-50 transition-colors">
+                        <span class="pr-4 text-slate-800">Is alimony taxable in Florida?</span>
+                        <span class="transition-transform group-open:rotate-180 shrink-0 text-blue-500">
+                            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-slate-600 p-4 pt-0 text-sm sm:text-base border-t border-slate-100 mt-1">Not for any divorce finalized in 2019 or later. The recipient gets the money completely tax-free.</div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 hover:bg-slate-50 transition-colors">
+                        <span class="pr-4 text-slate-800">Does adultery affect alimony?</span>
+                        <span class="transition-transform group-open:rotate-180 shrink-0 text-blue-500">
+                            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-slate-600 p-4 pt-0 text-sm sm:text-base border-t border-slate-100 mt-1">Yes, but mostly on the financial side. A judge cares if marital money was wasted on the affair.</div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 hover:bg-slate-50 transition-colors">
+                        <span class="pr-4 text-slate-800">Can men receive alimony in Florida?</span>
+                        <span class="transition-transform group-open:rotate-180 shrink-0 text-blue-500">
+                            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-slate-600 p-4 pt-0 text-sm sm:text-base border-t border-slate-100 mt-1">Yes. The law is completely gender-neutral. The court only looks at financial need and the ability to pay.</div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 hover:bg-slate-50 transition-colors">
+                        <span class="pr-4 text-slate-800">Can I appeal an alimony decision if I think the judge calculated my net income wrong?</span>
+                        <span class="transition-transform group-open:rotate-180 shrink-0 text-blue-500">
+                            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-slate-600 p-4 pt-0 text-sm sm:text-base border-t border-slate-100 mt-1">You can file an appeal. You have a very short 30-day window to file the paperwork after the final judgment. You have to prove the judge made a specific legal or mathematical error.</div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 hover:bg-slate-50 transition-colors">
+                        <span class="pr-4 text-slate-800">What happens to my alimony if my ex-spouse files for bankruptcy?</span>
+                        <span class="transition-transform group-open:rotate-180 shrink-0 text-blue-500">
+                            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-slate-600 p-4 pt-0 text-sm sm:text-base border-t border-slate-100 mt-1">Domestic support obligations survive bankruptcy. Your ex cannot wipe out their alimony or child support debt by filing Chapter 7 or Chapter 13.</div>
+                </details>
+
+                <details class="group border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 hover:bg-slate-50 transition-colors">
+                        <span class="pr-4 text-slate-800">How do courts calculate income for a spouse who is unemployed on purpose?</span>
+                        <span class="transition-transform group-open:rotate-180 shrink-0 text-blue-500">
+                            <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-slate-600 p-4 pt-0 text-sm sm:text-base border-t border-slate-100 mt-1">The judge looks at their past work history, education, and current local job market. They assign an imputed income based on what that person could realistically earn right now, and base the alimony on that fake number.</div>
+                </details>
+
+            </div>
+            
+            <div class="bg-amber-50 border border-amber-100 rounded-xl p-5 mt-8 not-prose">
+                <h3 class="font-bold text-amber-900 mb-2">Disclaimer</h3>
+                <p class="text-amber-800 text-sm m-0">This Florida alimony estimator and the surrounding content are for educational purposes only and do not constitute legal advice. We highly recommend you schedule a consultation with a qualified family law attorney who can evaluate your specific financial circumstances.</p>
+            </div>
+
+        </article>
     </div>
 
-    <!-- SEO Content Section (Below the fold) -->
-    <article class="w-full max-w-4xl mx-auto px-6 py-16 text-slate-300">
-        <div class="prose prose-invert prose-blue max-w-none">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Play the Chain Reaction Game Online</h2>
-            <p class="text-lg md:text-xl mb-6">Welcome to the ultimate digital version of the <strong>Chain Reaction game</strong>. This is a highly strategic, zero-player-elimination, explosive puzzle experience that requires zero downloads. You can play this digital board game locally with friends directly in your browser. Take control of the board, trigger massive chain reactions, and eliminate your opponents' orbs to claim victory!</p>
-
-            <div class="grid md:grid-cols-2 gap-12 my-12">
-                <div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Core Features</h3>
-                    <ul class="space-y-3">
-                        <li><strong>2-4 Player Multiplayer:</strong> Challenge your friends in local hot-seat multiplayer.</li>
-                        <li><strong>Customizable Board Sizes:</strong> Play on Classic (9x6), Medium (12x8), or Large (15x10) grids.</li>
-                        <li><strong>Instant Loading:</strong> No downloads, no waiting. Built with pure HTML5 Canvas for lightning-fast performance.</li>
-                        <li><strong>Mobile-Friendly:</strong> Fully responsive design that fits perfectly on any smartphone or desktop screen.</li>
-                        <li><strong>Synthesized Audio:</strong> Zero-latency, procedurally generated sound effects for satisfying explosions.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Advanced Winning Strategies</h3>
-                    <p class="mb-4">Want to dominate your friends? Keep these tips in mind:</p>
-                    <ul class="space-y-4">
-                        <li><strong>Control the Corners:</strong> Corners only require a mass of 2 to explode. Securing them early gives you a cheap, highly defensive staging ground.</li>
-                        <li><strong>The Edge Advantage:</strong> Edges (mass 3) are your highways. Build along the edges to surround opponents trapped in the middle (mass 4).</li>
-                        <li><strong>The Domino Effect:</strong> Don't just build randomly. Stack your orbs so that one explosion triggers another adjacent critical cell, sweeping the board in a single turn.</li>
-                    </ul>
+    <!-- Author & Legal Footer -->
+    <footer class="bg-slate-900 mt-12 py-10 px-4 sm:px-6 lg:px-8 border-t border-slate-800 relative z-40">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            
+            <!-- Author Info -->
+            <div class="text-center md:text-left">
+                <p class="text-white font-bold text-lg mb-3">Built by Chetan Kumar</p>
+                <div class="flex items-center justify-center md:justify-start gap-5">
+                    <a href="https://github.com/Chetan19988" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors flex items-center gap-2 group">
+                        <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                        <span class="text-sm font-medium">GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/askchetan/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2 group">
+                        <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path></svg>
+                        <span class="text-sm font-medium">LinkedIn</span>
+                    </a>
                 </div>
             </div>
-
-            <hr class="border-slate-800 my-12">
-
-            <h2 class="text-3xl font-bold text-white mb-8">Frequently Asked Questions (FAQ)</h2>
-            <div class="space-y-8">
-                <div>
-                    <h4 class="text-xl font-semibold text-blue-400 mb-2">How do you win the Chain Reaction game?</h4>
-                    <p class="leading-relaxed">The sole objective is to eliminate all opponents from the board. You win by capturing your opponents' orbs through explosive chain reactions until you are the last player with orbs remaining on the grid.</p>
-                </div>
-                <div>
-                    <h4 class="text-xl font-semibold text-blue-400 mb-2">What is 'critical mass' in Chain Reaction?</h4>
-                    <p class="leading-relaxed">Critical mass refers to the maximum number of orbs a cell can hold before it destabilizes and explodes. Corners have a critical mass of 2, edges have 3, and all inner cells have a critical mass of 4. When a cell reaches critical mass, it bursts, sending its orbs to adjacent cells.</p>
-                </div>
-                <div>
-                    <h4 class="text-xl font-semibold text-blue-400 mb-2">Can I play Chain Reaction on my mobile phone?</h4>
-                    <p class="leading-relaxed">Yes! This game is fully optimized for touch screens and mobile browsers. Just share the link with your friends, and you can pass the phone around to play.</p>
-                </div>
+            
+            <!-- Legal & Contact Links -->
+            <div class="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3 text-sm text-slate-400 font-medium">
+                <a href="javascript:void(0)" onclick="alert('Privacy Policy: This tool operates completely in your browser. It does not store, share, or send any personal financial data or inputs to external servers.')" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#disclaimer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-white transition-colors">Disclaimer</a>
+                <a href="https://www.linkedin.com/in/askchetan/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors flex items-center gap-1">Contact Us <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
             </div>
-
-            <!-- Footer Links -->
-            <footer class="mt-16 pt-8 border-t border-slate-800 text-center text-sm text-slate-500">
-                <p>&copy; 2026 Chain Reaction Game. All rights reserved.</p>
-                <div class="flex justify-center gap-6 mt-4">
-                    <button onclick="showPrivacyPolicy()" class="hover:text-blue-400 transition cursor-pointer">Privacy Policy</button>
-                    <button onclick="showContactUs()" class="hover:text-blue-400 transition cursor-pointer">Contact Us</button>
-                </div>
-            </footer>
         </div>
-    </article>
+        
+        <!-- Copyright Banner -->
+        <div class="max-w-6xl mx-auto mt-8 pt-6 border-t border-slate-800 text-center text-xs text-slate-500 lg:pb-0 pb-[calc(2rem+env(safe-area-inset-bottom))]">
+            &copy; 2026 Florida Alimony Estimator. Designed & Developed by Chetan Kumar.
+        </div>
+    </footer>
 
-    <!-- Game Logic & Rendering Scripts -->
+    <!-- Mobile Sticky Footer -->
+    <div class="lg:hidden fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-md text-white border-t border-slate-700/50 shadow-[0_-10px_40px_rgba(0,0,0,0.3)] z-50 pt-3 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] transition-all">
+        <div class="flex justify-between items-center max-w-xl mx-auto">
+            <div>
+                <div class="text-slate-400 text-[11px] uppercase tracking-wider font-semibold mb-0.5">Max Monthly Cap</div>
+                <div id="mobileCap" class="text-2xl sm:text-3xl font-bold text-blue-400 leading-none">$0.00</div>
+            </div>
+            <div class="text-right flex flex-col items-end">
+                <div class="text-slate-400 text-[11px] uppercase tracking-wider font-semibold mb-0.5">Max Duration</div>
+                <div id="mobileDuration" class="text-lg sm:text-xl font-bold text-white leading-none">0 mo</div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        /** * AUDIO SYSTEM - Synthesized Sounds for ZERO latency and zero external loading
-         */
-        let audioCtx = null;
+        // Number formatter
+        const fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
         
-        function initAudio() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
-        }
-
-        function playSound(type) {
-            if (!audioCtx) return;
-            try {
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-
-                if (type === 'place') {
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(400, audioCtx.currentTime);
-                    osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.1);
-                    gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
-                    osc.start();
-                    osc.stop(audioCtx.currentTime + 0.1);
-                } else if (type === 'explode') {
-                    osc.type = 'triangle';
-                    osc.frequency.setValueAtTime(150, audioCtx.currentTime);
-                    osc.frequency.exponentialRampToValueAtTime(50, audioCtx.currentTime + 0.2);
-                    gain.gain.setValueAtTime(0.5, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
-                    osc.start();
-                    osc.stop(audioCtx.currentTime + 0.2);
-                } else if (type === 'win') {
-                    [300, 400, 500].forEach(freq => {
-                        const winOsc = audioCtx.createOscillator();
-                        const winGain = audioCtx.createGain();
-                        winOsc.connect(winGain);
-                        winGain.connect(audioCtx.destination);
-                        winOsc.type = 'sine';
-                        winOsc.frequency.value = freq;
-                        winGain.gain.setValueAtTime(0.2, audioCtx.currentTime);
-                        winGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1);
-                        winOsc.start();
-                        winOsc.stop(audioCtx.currentTime + 1);
-                    });
-                }
-            } catch(e) { console.warn("Audio error", e); }
-        }
-
-        /**
-         * GAME ENGINE & LOGIC
-         */
-        const canvas = document.getElementById('game-canvas');
-        const ctx = canvas.getContext('2d', { alpha: false });
+        // Grab input elements
+        const getVal = (id) => Math.max(0, parseFloat(document.getElementById(id).value) || 0);
+        const inputs = document.querySelectorAll('input[type="number"]');
         
-        // Settings
-        let ROWS = 9;
-        let COLS = 6;
-        let CELL_SIZE = 60;
-        
-        const COLORS = {
-            1: { hex: '#ef4444', shadow: 'rgba(239, 68, 68, 0.6)' },   // Red
-            2: { hex: '#3b82f6', shadow: 'rgba(59, 130, 246, 0.6)' },   // Blue
-            3: { hex: '#22c55e', shadow: 'rgba(34, 197, 94, 0.6)' },    // Green
-            4: { hex: '#eab308', shadow: 'rgba(234, 179, 8, 0.6)' }     // Yellow
-        };
+        // Output elements
+        const elDeskCap = document.getElementById('desktopCap');
+        const elDeskDur = document.getElementById('desktopDuration');
+        const elDeskClass = document.getElementById('desktopClass');
+        const elDeskSub = document.getElementById('desktopDurationSub');
+        const elMobCap = document.getElementById('mobileCap');
+        const elMobDur = document.getElementById('mobileDuration');
+        const pNetDisp = document.getElementById('pNetDisplay');
+        const rNetDisp = document.getElementById('rNetDisplay');
+        const pBadge = document.getElementById('pDeductBadge');
+        const rBadge = document.getElementById('rDeductBadge');
 
-        // State variables
-        let grid = [];
-        let totalPlayers = 2;
-        let activePlayers = [];
-        let playerEliminated = {};
-        let currentPlayerIndex = 0;
-        let isAnimating = false;
-        let gameActive = false;
-        let turnCount = 0;
-        
-        // Initialization
-        function resizeCanvas() {
-            const container = document.getElementById('canvas-container');
-            if (!container) return;
-            
-            const maxWidth = container.clientWidth;
-            const maxHeight = container.clientHeight;
-            
-            const cellW = Math.floor(maxWidth / COLS);
-            const cellH = Math.floor(maxHeight / ROWS);
-            
-            CELL_SIZE = Math.min(cellW, cellH);
-            
-            canvas.width = CELL_SIZE * COLS;
-            canvas.height = CELL_SIZE * ROWS;
-            drawBoard();
-        }
-        window.addEventListener('resize', resizeCanvas);
+        // Main calculation function
+        function calculate() {
+            // Marriage Length
+            const y = getVal('years');
+            const m = getVal('months');
+            const totalMonths = (y * 12) + m;
+            const totalYears = totalMonths / 12;
 
-        function initGrid() {
-            grid = Array.from({ length: ROWS }, () => 
-                Array.from({ length: COLS }, () => ({ player: null, count: 0 }))
-            );
-        }
+            // Payor Net
+            const pg = getVal('pGross');
+            const pDeduct = getVal('pTax') + getVal('pUnion') + getVal('pHealth') + getVal('pRetire');
+            const pNet = Math.max(0, pg - pDeduct);
 
-        function getCriticalMass(r, c) {
-            let mass = 4;
-            if (r === 0 || r === ROWS - 1) mass--;
-            if (c === 0 || c === COLS - 1) mass--;
-            return mass;
-        }
+            // Recipient Net
+            const rg = getVal('rGross');
+            const rDeduct = getVal('rTax') + getVal('rUnion') + getVal('rHealth') + getVal('rRetire');
+            const rNet = Math.max(0, rg - rDeduct);
 
-        function getNeighbors(r, c) {
-            const neighbors = [];
-            if (r > 0) neighbors.push({ r: r - 1, c });
-            if (r < ROWS - 1) neighbors.push({ r: r + 1, c });
-            if (c > 0) neighbors.push({ r, c: c - 1 });
-            if (c < COLS - 1) neighbors.push({ r, c: c + 1 });
-            return neighbors;
-        }
+            // Cap Calculation (35% diff)
+            let cap = 0;
+            if (pNet > rNet) { cap = (pNet - rNet) * 0.35; }
 
-        // --- Drawing Logic ---
-        function drawBoard() {
-            ctx.fillStyle = '#1e293b'; 
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            // Duration Logic
+            let classification = "";
+            let mult = 0;
+            let eligible = true;
 
-            // Set the grid line properties for enhanced visibility
-            ctx.strokeStyle = '#475569';
-            ctx.lineWidth = 1.5; 
-            ctx.beginPath();
-            
-            for (let r = 1; r < ROWS; r++) {
-                ctx.moveTo(0, r * CELL_SIZE);
-                ctx.lineTo(canvas.width, r * CELL_SIZE);
+            if (totalYears < 3) {
+                classification = "Very Short-Term (< 3 yrs)";
+                eligible = false;
+            } else if (totalYears < 10) {
+                classification = "Short-Term (3 to <10 yrs)";
+                mult = 0.50;
+            } else if (totalYears < 20) {
+                classification = "Moderate-Term (10 to <20 yrs)";
+                mult = 0.60;
+            } else {
+                classification = "Long-Term (20+ yrs)";
+                mult = 0.75;
             }
-            for (let c = 1; c < COLS; c++) {
-                ctx.moveTo(c * CELL_SIZE, 0);
-                ctx.lineTo(c * CELL_SIZE, canvas.height);
-            }
-            ctx.stroke();
 
-            for (let r = 0; r < ROWS; r++) {
-                for (let c = 0; c < COLS; c++) {
-                    const cell = grid[r][c];
-                    if (cell.count > 0) {
-                        drawOrbs(r, c, cell.count, cell.player);
-                    }
-                }
+            const maxDurMonths = Math.floor(totalMonths * mult);
+
+            // Formatting duration string
+            const durY = Math.floor(maxDurMonths / 12);
+            const durM = maxDurMonths % 12;
+            let durStr = "";
+            if (durY > 0) durStr += `${durY} yr${durY !== 1 ? 's' : ''}`;
+            if (durY > 0 && durM > 0) durStr += " and ";
+            if (durM > 0) durStr += `${durM} mo${durM !== 1 ? 's' : ''}`;
+            if (maxDurMonths === 0) durStr = "0 months";
+
+            // Update DOM Elements
+            const formattedCap = fmt.format(cap);
+            elDeskCap.textContent = formattedCap;
+            elMobCap.textContent = formattedCap;
+            
+            pNetDisp.textContent = fmt.format(pNet);
+            rNetDisp.textContent = fmt.format(rNet);
+
+            // Update Deduction Badges
+            if(pDeduct > 0) { pBadge.textContent = `-${fmt.format(pDeduct)}`; pBadge.classList.remove('hidden'); } else { pBadge.classList.add('hidden'); }
+            if(rDeduct > 0) { rBadge.textContent = `-${fmt.format(rDeduct)}`; rBadge.classList.remove('hidden'); } else { rBadge.classList.add('hidden'); }
+
+            elDeskClass.textContent = totalMonths === 0 ? "Awaiting Input..." : classification;
+
+            if (!eligible && totalMonths > 0) {
+                elDeskDur.innerHTML = `<span class="text-amber-400 text-lg">Not eligible for Durational Alimony.</span>`;
+                elDeskSub.textContent = "Bridge-the-gap may apply.";
+                // Shortened for mobile screen width constraints
+                elMobDur.innerHTML = `<span class="text-amber-400 text-sm font-semibold tracking-wide">Not Eligible</span>`;
+            } else {
+                elDeskDur.textContent = durStr;
+                elMobDur.textContent = durY > 0 ? `${durY}y ${durM}m` : `${durM}m`;
+                elDeskSub.textContent = totalMonths > 0 ? `Based on statutory multipliers (${mult*100}%).` : "Awaiting marriage length.";
             }
         }
 
-        function drawOrbs(r, c, count, player) {
-            const cx = c * CELL_SIZE + CELL_SIZE / 2;
-            const cy = r * CELL_SIZE + CELL_SIZE / 2;
-            const color = COLORS[player];
-            const orbRadius = CELL_SIZE * 0.22;
-
-            ctx.fillStyle = color.hex;
-            ctx.shadowColor = color.shadow;
-            ctx.shadowBlur = 10;
-
-            const drawCircle = (x, y) => {
-                ctx.beginPath();
-                ctx.arc(x, y, orbRadius, 0, Math.PI * 2);
-                ctx.fill();
-                
-                ctx.fillStyle = 'rgba(255,255,255,0.3)';
-                ctx.shadowBlur = 0;
-                ctx.beginPath();
-                ctx.arc(x - orbRadius*0.3, y - orbRadius*0.3, orbRadius*0.3, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.fillStyle = color.hex;
-                ctx.shadowBlur = 10;
-            };
-
-            if (count === 1) {
-                drawCircle(cx, cy);
-            } else if (count === 2) {
-                drawCircle(cx - orbRadius*0.6, cy);
-                drawCircle(cx + orbRadius*0.6, cy);
-            } else if (count === 3) {
-                drawCircle(cx, cy - orbRadius*0.6);
-                drawCircle(cx - orbRadius*0.6, cy + orbRadius*0.6);
-                drawCircle(cx + orbRadius*0.6, cy + orbRadius*0.6);
-            }
-            
-            ctx.shadowBlur = 0;
-        }
-
-        // --- Interaction Logic ---
-        canvas.addEventListener('click', (e) => {
-            if (!gameActive || isAnimating) return;
-            
-            initAudio(); 
-
-            const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const c = Math.floor(x / CELL_SIZE);
-            const r = Math.floor(y / CELL_SIZE);
-
-            if (r >= 0 && r < ROWS && c >= 0 && c < COLS) {
-                handleMove(r, c);
-            }
+        // Attach listeners
+        inputs.forEach(input => {
+            input.addEventListener('input', calculate);
         });
 
-        function handleMove(r, c) {
-            const player = activePlayers[currentPlayerIndex];
-            const cell = grid[r][c];
-
-            if (cell.player !== null && cell.player !== player) return;
-
-            playSound('place');
-            cell.player = player;
-            cell.count++;
-            
-            turnCount++;
-            processExplosions();
-        }
-
-        function processExplosions() {
-            isAnimating = true;
-            drawBoard();
-
-            let explosions = [];
-            for (let r = 0; r < ROWS; r++) {
-                for (let c = 0; c < COLS; c++) {
-                    if (grid[r][c].count >= getCriticalMass(r, c)) {
-                        explosions.push({r, c});
-                    }
-                }
-            }
-
-            if (explosions.length > 0) {
-                playSound('explode');
-                setTimeout(() => {
-                    for (const {r, c} of explosions) {
-                        const cell = grid[r][c];
-                        const player = cell.player;
-                        
-                        cell.count -= getCriticalMass(r, c);
-                        if (cell.count === 0) cell.player = null;
-
-                        const neighbors = getNeighbors(r, c);
-                        for (const n of neighbors) {
-                            grid[n.r][n.c].player = player;
-                            grid[n.r][n.c].count++;
-                        }
-                    }
-                    processExplosions(); 
-                }, 200); 
-            } else {
-                isAnimating = false;
-                checkGameStatus();
-            }
-        }
-
-        function checkGameStatus() {
-            if (turnCount >= activePlayers.length) {
-                const orbCounts = {};
-                activePlayers.forEach(p => orbCounts[p] = 0);
-                
-                for (let r = 0; r < ROWS; r++) {
-                    for (let c = 0; c < COLS; c++) {
-                        if (grid[r][c].player) {
-                            orbCounts[grid[r][c].player]++;
-                        }
-                    }
-                }
-
-                activePlayers.forEach(p => {
-                    if (orbCounts[p] === 0 && !playerEliminated[p]) {
-                        playerEliminated[p] = true;
-                    }
-                });
-
-                activePlayers = activePlayers.filter(p => !playerEliminated[p]);
-
-                if (activePlayers.length <= 1) {
-                    gameActive = false;
-                    const winner = activePlayers[0] || 1;
-                    playSound('win');
-                    showMessage(`Player ${winner} Wins!`);
-                    
-                    const resumeBtn = document.getElementById('resume-btn');
-                    if(resumeBtn) resumeBtn.classList.add('hidden');
-                    return;
-                }
-            }
-
-            nextPlayer();
-        }
-
-        function nextPlayer() {
-            currentPlayerIndex = (currentPlayerIndex + 1) % activePlayers.length;
-            updateUI();
-        }
-
-        function updateUI() {
-            if (activePlayers.length === 0) return;
-            const playerNum = activePlayers[currentPlayerIndex];
-            const colorData = COLORS[playerNum];
-            
-            const indicator = document.getElementById('status-indicator');
-            const turnColor = document.getElementById('turn-color');
-            const turnText = document.getElementById('turn-text');
-
-            if(turnColor) {
-                turnColor.style.backgroundColor = colorData.hex;
-                turnColor.style.boxShadow = `0 0 10px ${colorData.shadow}`;
-            }
-            
-            if(turnText) turnText.innerText = `Player ${playerNum}'s Turn`;
-            
-            if(indicator) indicator.style.borderColor = colorData.hex;
-        }
-
-        // --- UI & Lifecycle ---
-        function showMessage(msg) {
-            const overlay = document.getElementById('message-overlay');
-            const messageText = document.getElementById('message-text');
-            if(messageText) messageText.innerText = msg;
-            if(overlay) {
-                overlay.classList.remove('hidden');
-                overlay.classList.add('flex');
-                
-                setTimeout(() => {
-                    overlay.classList.add('hidden');
-                    overlay.classList.remove('flex');
-                    showMenu();
-                }, 3000);
-            }
-        }
-
-        function showMenu() {
-            const menuModal = document.getElementById('menu-modal');
-            const resumeBtn = document.getElementById('resume-btn');
-            if(menuModal) menuModal.classList.remove('hidden');
-            if (gameActive && resumeBtn) {
-                resumeBtn.classList.remove('hidden');
-            }
-        }
-
-        function closeMenu() {
-            const menuModal = document.getElementById('menu-modal');
-            if(menuModal) menuModal.classList.add('hidden');
-            initAudio();
-        }
-
-        function restartGame() {
-            const confirmModal = document.getElementById('confirm-modal');
-            if(confirmModal) confirmModal.classList.remove('hidden');
-        }
-
-        function confirmRestart(yes) {
-            const confirmModal = document.getElementById('confirm-modal');
-            if(confirmModal) confirmModal.classList.add('hidden');
-            if (yes) {
-                startGame();
-            }
-        }
-
-        function showRules() {
-            const rulesModal = document.getElementById('rules-modal');
-            if(rulesModal) rulesModal.classList.remove('hidden');
-        }
-
-        function hideRules() {
-            const rulesModal = document.getElementById('rules-modal');
-            if(rulesModal) rulesModal.classList.add('hidden');
-        }
-
-        function showPrivacyPolicy() {
-            const modal = document.getElementById('privacy-modal');
-            if(modal) modal.classList.remove('hidden');
-        }
-
-        function hidePrivacyPolicy() {
-            const modal = document.getElementById('privacy-modal');
-            if(modal) modal.classList.add('hidden');
-        }
-
-        function showContactUs() {
-            const modal = document.getElementById('contact-modal');
-            if(modal) modal.classList.remove('hidden');
-        }
-
-        function hideContactUs() {
-            const modal = document.getElementById('contact-modal');
-            if(modal) modal.classList.add('hidden');
-        }
-
-        function startGame() {
-            initAudio();
-            
-            const playersSel = document.getElementById('total-players');
-            const boardSizeSel = document.getElementById('board-size');
-            
-            if(playersSel) {
-                totalPlayers = parseInt(playersSel.value);
-            }
-            if(boardSizeSel) {
-                const dims = boardSizeSel.value.split('x');
-                ROWS = parseInt(dims[0]);
-                COLS = parseInt(dims[1]);
-            }
-
-            activePlayers = Array.from({length: totalPlayers}, (_, i) => i + 1);
-            playerEliminated = {};
-            currentPlayerIndex = 0;
-            turnCount = 0;
-            isAnimating = false;
-            gameActive = true;
-            
-            initGrid();
-            resizeCanvas();
-            updateUI();
-            closeMenu();
-            
-            const restartBtn = document.getElementById('restart-btn');
-            if(restartBtn) restartBtn.classList.remove('hidden');
-        }
-
-        // Initial setup
-        initGrid();
-        resizeCanvas();
-        showMenu(); 
     </script>
 </body>
 </html>
