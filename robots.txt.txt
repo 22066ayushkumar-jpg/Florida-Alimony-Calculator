@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-
-
-Sitemap: https://the-chain-reaction-game.netlify.app/sitemap.xml
+Sitemap: https://florida-alimony-estimator.netlify.app/sitemap.xml
